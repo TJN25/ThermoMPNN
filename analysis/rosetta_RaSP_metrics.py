@@ -7,7 +7,8 @@ from omegaconf import OmegaConf
 from Bio import pairwise2
 
 import sys
-sys.path.append('../')
+script_dir = os.path.dirname(os.path.realpath(__file__))
+sys.path.append(os.path.dirname(script_dir))
 from datasets import seq1_index_to_seq2_index, FireProtDataset, MegaScaleDataset, ddgBenchDataset
 
 alphabet = 'ACDEFGHIKLMNPQRSTVWYX'

@@ -7,7 +7,8 @@ from omegaconf import OmegaConf
 from Bio.PDB import PDBParser
 
 import sys
-sys.path.append('../')
+script_dir = os.path.dirname(os.path.realpath(__file__))
+sys.path.append(os.path.dirname(script_dir))
 from datasets import Mutation
 from train_thermompnn import TransferModelPL
 from protein_mpnn_utils import tied_featurize, alt_parse_PDB

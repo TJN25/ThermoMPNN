@@ -5,7 +5,8 @@ from omegaconf import OmegaConf
 
 import os
 import sys
-sys.path.append('../')
+script_dir = os.path.dirname(os.path.realpath(__file__))
+sys.path.append(os.path.dirname(script_dir))
 from datasets import MegaScaleDataset, ddgBenchDataset, FireProtDataset, Mutation
 from protein_mpnn_utils import loss_smoothed, tied_featurize
 from train_thermompnn import TransferModelPL
