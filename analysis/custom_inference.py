@@ -122,6 +122,9 @@ if __name__ == "__main__":
     parser.add_argument('--out_dir', type=str, default='./', help='Output directory in which to save predictions.')
 
     args = parser.parse_args()
-    cfg = OmegaConf.load("../local.yaml")
+    try:
+        cfg = OmegaConf.load("local.yaml")
+    except FileNotFoundError:
+        cfg = OmegaConf.load("../local.yaml")
     with torch.no_grad():
         main(cfg, args)

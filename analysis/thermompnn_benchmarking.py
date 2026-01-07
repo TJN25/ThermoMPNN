@@ -263,6 +263,9 @@ if __name__ == "__main__":
                              'Only used if --keep_preds is enabled.')
 
     args = parser.parse_args()
-    cfg = OmegaConf.load("../local.yaml")
+    try:
+        cfg = OmegaConf.load("local.yaml")
+    except FileNotFoundError:
+        cfg = OmegaConf.load("../local.yaml")
     with torch.no_grad():
         main(cfg, args)

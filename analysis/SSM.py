@@ -179,7 +179,10 @@ def main(cfg, args):
 
 
 if __name__ == "__main__":
-    cfg = OmegaConf.load("../local.yaml")
+    try:
+        cfg = OmegaConf.load("local.yaml")
+    except FileNotFoundError:
+        cfg = OmegaConf.load("../local.yaml")
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument('--pick_best', action='store_true', default=False,

@@ -240,6 +240,9 @@ def main(cfg):
 
 
 if __name__ == "__main__":
-    cfg = OmegaConf.load("../local.yaml")
+    try:
+        cfg = OmegaConf.load("local.yaml")
+    except FileNotFoundError:
+        cfg = OmegaConf.load("../local.yaml")
     cfg = OmegaConf.merge(cfg, OmegaConf.from_cli())
     main(cfg)
